@@ -11,9 +11,9 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.listen(5000, () => {
-    console.log("welcome to mongoDB and server running on 5000");
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 try {
     console.log(process.env.MONGODB_URI);
